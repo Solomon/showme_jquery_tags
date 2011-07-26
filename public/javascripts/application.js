@@ -9,9 +9,15 @@ $(document).ready(function(){
 	
 	// Toggle Hide Quote Topics
 
+	if (1){
+			console.log('something awesome')
+	}
+
+	var taglist = "<%= escape_javascript(@tags.map(&:name)) %>";
+	console.log(taglist)
 
 	$('#tags').tagit();
-	$('#edit_tags').tagit({triggerKeys: ['enter', 'comma', 'tab']});
+	$('#edit_tags').tagit({triggerKeys: ['enter', 'comma', 'tab'], initialTags: taglist });
 	
 
 	// Take out remove tag links and resize javascript
