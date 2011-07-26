@@ -2,13 +2,15 @@
 <html>
 <head>
   <title>ShowmeJqueryTags</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= render 'layouts/stylesheets' %>
+  <%= render 'layouts/javascript_tags' %>
   <%= csrf_meta_tag %>
 </head>
+
 <body>
 
+<div class="container">
 <%= yield %>
-
+</div>
 </body>
 </html>

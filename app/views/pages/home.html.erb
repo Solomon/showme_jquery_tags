@@ -1,2 +1,29 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Show Me Jquery Tag Editing</h1>
+<h2>Current ShowMe</h2>
+The current tags on the project are:
+
+
+<div id="show_tags" class="show_tags">
+<ul class="tagit"><li class="tagit-choice">something</li></ul>
+</div>
+
+
+<div id="editing_tags" class="editing_tags">
+<ul id="edit_tags" class="tagit">
+	<% if !@tags.blank? %>
+	  <% for tag in @tags %>
+	    <li class="tagit-choice"> <%= tag.name + " " %> <a class="tagit-close">x</a> </li>
+	  <% end %>
+	<% else %>
+	  
+	<% end %>	
+
+	<li class="tagit-new">
+		<input type="text" class="tagit-input ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+	</li>
+	<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
+</ul>
+<div class="buttons">
+<button value="Get Tags" id="demo13GetTags">Get Tags</button>
+</div>
+</div>
