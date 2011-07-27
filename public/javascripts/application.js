@@ -3,61 +3,51 @@
 
 
 $(document).ready(function(){
-	
-	
-
-	
-	// Toggle Hide Quote Topics
-
-
-
-	//var taglist = "<%= escape_javascript(@tags.map(&:name)) %>";
-	//console.log(taglist)
 
 	var availableTags = ["something", "blargh"];
 
-	$('#tags').tagit();
-	$('#edit_tags').tagit({triggerKeys: ['enter', 'comma', 'tab'] });
-	$('#test_tags').tagit({triggerKeys: ['enter', 'comma', 'tab'] });
-	$('#demo3').tagit({tagSource: availableTags, triggerKeys: ['enter', 'comma', 'tab']});
+	$('#tags').tagit({triggerKeys: ['enter', 'comma', 'tab'] });
+	
+	$(".tagit-choice a").html("");
+	$(".tagit-choice").css("padding", "2px 6px 3px 4px");
+	$(".tagit-new").hide();
+	
+ 	
+ 	function toggleEditOn(){
+ 		$(".tagit-new").show();
+		$(".tagit-choice a").html('x');
+		$(".tags_div").addClass("box");
+		$(".tagit-choice").css("padding","2px 16px 3px 4px");
+		$("#edit_label").html('<h3>Edit Tags</h3>');
+ 	}
 
-	// $('#demo3GetTags').click(function(){showTags($('#demo3').tagit('tags'))});
-
- //            function showTags(tags){
- //                var string = "Tags\r\n";
- //                    string +="--------\r\n";
- //                for(var i in tags)
- //                string += tags[i]+"\r\n";
- //                alert(string);
- //            }
-
-	// Take out remove tag links and resize javascript
-
-// $(".tagit-choice a").html('');
-// $(".tagit-choice").css("padding","2px 6px 3px 4px");
+ 	function toggleEditOff(){
+ 		$(".tagit-new").hide();
+		$(".tagit-choice a").html('');
+		$(".tags_div").removeClass("box");
+		$(".tagit-choice").css("padding","2px 6px 3px 4px");
+		$("#edit_label").html('');
+ 	}
 
 
-// Add back remove tag links and resize on edit javascript
+	var toggle_link_location = "#edit_toggle_link";
 
-// $(".tagit-choice a").html('x');
-// $(".tagit-choice").css("padding","2px 13px 3px 4px");
-
-var toggle_link_location = "#edit_toggle_link";
-
-$(toggle_link_location).click(function(){
+	$(toggle_link_location).click(function(){
 		if ($(toggle_link_location).hasClass('toggle_edit_off')){
 			$(toggle_link_location).addClass('toggle_edit_on');
 			$(toggle_link_location).removeClass('toggle_edit_off');
-			$("#show_tags").slideUp();
-			$("#editing_tags").delay(600).slideDown();			
+			$("#tags_div").slideUp(300);
+			setTimeout(toggleEditOn,300);
+			$("#tags_div").delay(300).slideDown();			
 		}
 		else {
 			$(toggle_link_location).addClass('toggle_edit_off');
 			$(toggle_link_location).removeClass('toggle_edit_on');
-			$("#editing_tags").slideUp();
-			$("#show_tags").delay(600).slideDown();
+			$("#tags_div").slideUp(300);
+			setTimeout(toggleEditOff,300);
+			$("#tags_div").delay(300).slideDown();
 		}
-		});
 	});
+});
 
 
