@@ -241,12 +241,20 @@
         }
         ,
 
+        // _initialTags: function() {
+        //     var input = this;
+        //     if (this.options.initialTags.length != 0) {
+        //         this.options.initialTags.each(function (i){
+        //             input._addTag(i);
+        //         });
+        //     }
+        // }
+
         _initialTags: function() {
-            var input = this;
             if (this.options.initialTags.length != 0) {
-                this.options.initialTags.each(function (i){
-                    input._addTag(i);
-                });
+                for (var i in this.options.initialTags)
+                    if (!this._exists(this.options.initialTags[i]))
+                        this._addTag(this.options.initialTags[i]);
             }
         }
         ,

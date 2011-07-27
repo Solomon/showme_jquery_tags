@@ -1,13 +1,13 @@
 <h1>Show Me Jquery Tag Editing</h1>
 <h2>Current ShowMe</h2>
-The current tags on the project are: <%= link_to "Edit", "javascript:void(0)", :class => "show_edit" %>
+The current tags on the project are: <%= link_to "Edit", "javascript:void(0)", {:class => "show_edit toggle_edit_off", :id => "edit_toggle_link" } %>
 
 
-<div id="show_tags" class="show_tags">
+<div id="show_tags" class="show_tags" name="show_tags">
 <ul class="tagit">
 <% if !@tags.blank? %>
   <% for tag in @tags %>
-    <li class="tagit-choice"><%= tag.name %></li>
+    <li class="tagit-choice"><%= link_to tag.name, "javascript:void(0)" %></li>
   <% end %>
 <% else %>
   
@@ -16,11 +16,12 @@ The current tags on the project are: <%= link_to "Edit", "javascript:void(0)", :
 </div>
 
 
-<div id="editing_tags" class="editing_tags">
+<div id="editing_tags" class="editing_tags box" style="display: none;" name="editing_tags">
+<h3>Edit Tags</h3>
 <ul id="edit_tags" class="tagit">
-	<% if @tags.blank? %>
+	<% if !@tags.blank? %>
  	  <% for tag in @tags %>
-	    <li class="tagit-choice"> <%= tag.name + " " %> <a class="tagit-close">x</a> </li>
+	    <li><%= tag.name%></li>
 	  <% end %>
 	<% else %>
 	  
@@ -31,7 +32,5 @@ The current tags on the project are: <%= link_to "Edit", "javascript:void(0)", :
 	</li>
 	<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
 </ul>
-<!-- <div class="buttons">
-<button value="Get Tags" id="demo13GetTags">Get Tags</button>
-</div> -->
 </div>
+
