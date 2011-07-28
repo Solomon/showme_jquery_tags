@@ -6,3 +6,7 @@
 .tagit-choice a {
 	text-decoration : none;
 }
+
+.buttons {
+	padding: 4px 0 0 4px;
+}

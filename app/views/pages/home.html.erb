@@ -1,10 +1,10 @@
 <h1>Show Me Jquery Tag Editing</h1>
 <h2>Current ShowMe</h2>
-The current tags on the project are: <%= link_to "Edit", "javascript:void(0)", {:class => "show_edit toggle_edit_off", :id => "edit_toggle_link" } %>
+The current tags on the project are: <%= link_to "Edit", "javascript:void(0)", {:class => "show_edit toggle_edit_off edit_toggle_link", :id => "edit_toggle_link" } %>
 
 
 <div id="tags_div" class="tags_div" name="tags_div">
-	<div id="edit_label"></div>
+	
 
 	<ul id="tags" class="tagit">
 		<% if !@tags.blank? %>
@@ -15,5 +15,19 @@ The current tags on the project are: <%= link_to "Edit", "javascript:void(0)", {
 		  
 		<% end %>	
 	</ul>
+
+	<div id="edit_text_field" style="display : none;">
+		
+			<form id="addTagForm">
+				<div class="span-5">
+				<input type="text" name="add_tag"/>
+				</div>
+				<div class="buttons span-3">
+	                <button id="addUserTagButton" value="Add Tag">Add Tag</button>
+	            </div>
+	            <div class="span-2 last">
+	            	<%= link_to "Done", "javascript:void(0)", {:class => "show_edit toggle_edit_off edit_toggle_link", :style => "padding: 4px 0 0 0", :id => "done_toggle_link" } %>
+	        </form>
+	</div>
 </div>
 
