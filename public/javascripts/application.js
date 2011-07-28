@@ -13,10 +13,12 @@ $(document).ready(function(){
 	// add new user submitted tag to list of tags
 	// put code to submit tag to database here
 	$('#addTagForm').submit(function(e){
-           e.preventDefault();
-           var tagText = $("#edit_text_field input").val();
-	 		$("#tags_div ul").append("<li class=\"tagit-choice\" style=\"padding: 2px 16px 3px 4px\">" + tagText + " <a class=\"tagit-close\">x</a></li>");
+		e.preventDefault();
+		if($.trim($("#edit_text_field input").val()).length > 0){
+    		var tagText = $("#edit_text_field input").val();
+			$("#tags_div ul").append("<li class=\"tagit-choice\" style=\"padding: 2px 16px 3px 4px\">" + tagText + " <a class=\"tagit-close\">x</a></li>");
 	 		$("#edit_text_field input").val("");
+ 		}
 	});
 
 	
@@ -27,6 +29,7 @@ $(document).ready(function(){
 		$(".tagit-choice a").html('x');
 		$(".tagit-choice").css("padding","2px 16px 3px 4px");
 		$("#edit_text_field").show();
+		$("#edit_toggle_link").html('Done');
 		
 		// To add additional formatting on edit, create a css class and put it in addClass below 
 		// $(".tags_div").addClass("");
@@ -41,6 +44,7 @@ $(document).ready(function(){
  		$("#edit_text_field").hide();
 		$(".tagit-choice a").html('');
 		$(".tagit-choice").css("padding","2px 6px 3px 4px");
+		$("#edit_toggle_link").html('Edit');
 		
 		// If you added any css class in the toggleEditOn function, remove it here to toggle
 		// $(".tags_div").removeClass("");
