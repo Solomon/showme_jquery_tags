@@ -15,7 +15,7 @@ $(document).ready(function(){
 	$('#addTagForm').submit(function(e){
            e.preventDefault();
            var tagText = $("#edit_text_field input").val();
-	 		$("#tags_div ul").append("<li class=\"tagit-choice\" style=\"padding: 2px 16px 3px 4px\">" + tagText + " <a class=\"tagit-close\">x<a/></li>");
+	 		$("#tags_div ul").append("<li class=\"tagit-choice\" style=\"padding: 2px 16px 3px 4px\">" + tagText + " <a class=\"tagit-close\">x</a></li>");
 	 		$("#edit_text_field input").val("");
 	});
 
