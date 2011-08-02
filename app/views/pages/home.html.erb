@@ -20,11 +20,15 @@ The current tags on the project are: <%= link_to "Edit", "javascript:void(0)", {
 		
 			<form id="addTagForm">
 				<div class="span-5">
-				<input type="text" name="add_tag"/>
+				<input type="text" name="add_tag" id="tag_input"/>
 				</div>
-				<div class="buttons span-3 last">
+				<div class="buttons span-2">
 	                <button id="addUserTagButton" value="Add Tag">Add Tag</button>
-	            </div>	            
+	            </div>
+	            
+	            <div class="span-2 last done_button">
+	            	<button class="edit_toggle_link">Done</button>
+	            </div>
 	        </form>
 	</div>
 </div>

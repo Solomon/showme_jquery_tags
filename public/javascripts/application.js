@@ -19,6 +19,8 @@ $(document).ready(function(){
 			$("#tags_div ul").append("<li class=\"tagit-choice\" style=\"padding: 2px 16px 3px 4px\">" + tagText + " <a class=\"tagit-close\">x</a></li>");
 	 		$("#edit_text_field input").val("");
  		}
+ 		
+
 	});
 
 	
@@ -29,7 +31,7 @@ $(document).ready(function(){
 		$(".tagit-choice a").html('x');
 		$(".tagit-choice").css("padding","2px 16px 3px 4px");
 		$("#edit_text_field").show();
-		$("#edit_toggle_link").html('Done');
+		$("#edit_toggle_link").html('');
 		
 		// To add additional formatting on edit, create a css class and put it in addClass below 
 		// $(".tags_div").addClass("");
@@ -79,6 +81,31 @@ $(document).ready(function(){
 			// $("#tags_div").delay(300).slideDown();
 		}
 	});
+
+	// Autocomplete
+
+	var availableTags = ["Applications of Solving Equations",
+						"Inequalities",
+						"Compound Inequalities",
+						"Absolute Value",
+						"Probability",
+						"Graphing Data",
+						"Graphing Equations",
+						"Writing Equations",
+						"Systems of Equations",
+						"Variation",
+						"Exponents",
+						"Scientific Notation",
+						"Polynomials",
+						"Quadratics",
+						"Binomial Expansion",
+						"Factoring"];
+
+	$("#tag_input").autocomplete({
+		source: availableTags
+	});	
+
+
 });
 
 
